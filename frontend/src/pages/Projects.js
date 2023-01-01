@@ -1,30 +1,26 @@
-import axios from "axios";
 import React from "react";
-import { useState } from "react";
 import { useEffect } from "react";
 import Cards from "../components/Cards";
 import Card from "../components/Card";
+import { getprojects } from '../actions/projects';
 
-const baseURL = "http://localhost:4000/projects/";
+import { useSelector ,useDispatch} from 'react-redux';
+
 
 export default function Projects() {
-  const [posts, setPosts] = useState(null);
+  const projects = useSelector((state) => state.projects);
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    axios.get(baseURL).then((response) => {
-      setPosts(response.data);
-    });
-  }, []);
-
-  if (!posts) return null;
-else
+    dispatch(getprojects())
+  })
   return (
-    <div>
-      <Cards>
-     {posts && posts.map(post => (
-          <Card data={post} key={post._id} />
-        ))}
-        </Cards>
-      </div>
+    <Cards>
+   {projects && projects.map(project => (
+     <Card data={project} key={project._id} />
+     ))}
+     </Cards>
+      
   );
 }
+
