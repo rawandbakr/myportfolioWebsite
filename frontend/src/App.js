@@ -4,9 +4,9 @@ import Home from "./pages/Home";
 import Contact from "./pages/Contact";
 import Projects from "./pages/Projects";
 import About from "./pages/About";
+import Login from './pages/Login'
 function App() {
   return (
-    <div className="">
     <BrowserRouter>
     <Navbar/>
     <Routes>
@@ -14,9 +14,9 @@ function App() {
       <Route exact path='/Contact' element={<Contact/>}/>
       <Route exact path='/Projects' element={<Projects/>}/>
       <Route exact path='/About' element={<About/>}/>
+      <Route exact path='/Login' element={<Login/>} />
     </Routes>
     </BrowserRouter>
-    </div>
   );
 }
 
