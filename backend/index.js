@@ -1,6 +1,6 @@
 const express= require('express')
 const mongoose = require('mongoose')
-const ProjectRouter = require('./routes/projects')
+const ProjectRoutes = require('./routes/projects')
 var cors = require('cors')
 
 
@@ -16,8 +16,8 @@ app.use((req,res,next)=>{
     next()
 })
 
-//route
-app.use('/projects',ProjectRouter)
+//setup routes
+app.use('/projects',ProjectRoutes)
 //connetc to db
 mongoose.connect(process.env.MONG_URI)
 .then(()=>{

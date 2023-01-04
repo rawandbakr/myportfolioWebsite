@@ -1,6 +1,6 @@
 const express = require('express')
-const {createProject,getProjects,deleteProject,updateaProject,getProject} = require('../controllers/porjectController')  
 const router = express.Router()
+const {createProject,getProjects,deleteProject,updateaProject,getProject} = require('../controllers/porjectController')  
 
 // GET all Project
 router.get('/',getProjects)
